@@ -7,4 +7,7 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class LoginModule { }
+export class LoginModule {
+  email: String;
+  password: String;
+}
