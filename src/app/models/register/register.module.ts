@@ -7,4 +7,8 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class RegisterModule { }
+export class RegisterModule { 
+	email: string;
+	displayName: string;
+	password: string;
+}

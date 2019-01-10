@@ -6,6 +6,8 @@ import { RegisterModule } from '../models/register/register.module';
   providedIn: 'root'
 })
 export class RegisterService {
-	selectedRegister
+	selectedRegister: RegisterModule;
 	constructor(private http: HttpClient) { }
+	
 }
+  
