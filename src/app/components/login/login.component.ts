@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   public submit(){
     this.auth.login(this.email, this.password).pipe(first())
     .subscribe(
-      result => this.router.navigate(['localhost:3001/taskbook/sigin']),
+      result => this.router.navigate(['http://localhost:3001/taskbook/signin']),
       err => this.error = 'Could not authenticate'
     )
   }

@@ -12,7 +12,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(email: string, password: String): Observable<boolean> {
-    return this.http.post<{token: string}>('signin', {email: email, password: password}).pipe(
+    return this.http.post<{token: string}>('http://localhost:3001/taskbook/signin', {email: email, password: password}).pipe(
       map(result => {
         localStorage.setItem('access_token', result.token);
         return true;
