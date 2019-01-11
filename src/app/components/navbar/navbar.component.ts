@@ -1,6 +1,6 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+//import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   
-  constructor(private auth: AuthService, private router: Router){}
+  constructor(private auth: AuthService/*,private router: Router*/){}
 
   logout() {
     this.auth.logout();
-    this.router.navigate(['signin']);
+    //this.router.navigate(['signin']); hice que se cambiara en el html
   }
 
   ngOnInit() {

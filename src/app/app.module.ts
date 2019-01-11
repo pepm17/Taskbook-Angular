@@ -27,7 +27,6 @@ export function tokenGetter() {
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    //HttpClient,
 
     JwtModule.forRoot({
       config: {
