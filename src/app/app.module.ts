@@ -11,6 +11,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PrincipalPageComponent } from './components/principal-page/principal-page.component';
 
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,8 +30,8 @@ import { PrincipalPageComponent } from './components/principal-page/principal-pa
 
     JwtModule.forRoot({
       config: {
-        //tokenGetter: tokenGetter,
-        whitelistedDomains: ['localhost:4200']
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ['localhost:3001/taskbook']
       }
     })
   ],
