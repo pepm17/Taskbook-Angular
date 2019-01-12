@@ -1,15 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { UserModule } from '../models/user/user.module';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User } from '../models/user.model';
+import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+	selectedUser: User ={
+		displayName: '',
+		email: '',
+		password: ''
+	};
+
 	constructor(private http: HttpClient) { }
 	
-	register(user: UserModule){
-  		return this.http.post('http://localhost:3001/taskbook/signup', user);
+	register(user: User){
+  		return this.http.post(environment.apiBaseUrl+'/signup', user);
 	}
 }
