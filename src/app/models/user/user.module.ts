@@ -7,8 +7,10 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class RegisterModule { 
+export class UserModule {
+	id: number;
 	email: string;
 	displayName: string;
 	password: string;
+	token: string;
 }
