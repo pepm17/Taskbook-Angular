@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { observable, Observable } from 'rxjs';
 import { map } from 'rxjs/Operators';
+import { environment } from '../../environments/environment';
 import { post } from 'selenium-webdriver/http';
 
 @Injectable({
@@ -12,7 +13,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(email: string, password: String): Observable<boolean> {
-    return this.http.post<{token: string}>('http://localhost:3001/taskbook/signin', {email: email, password: password}).pipe(
+    return this.http.post<{token: string}>(environment.apiBaseUrl+'/signin', {email: email, password: password}).pipe(
       map(result => {
         localStorage.setItem('access_token', result.token);
         return true;
