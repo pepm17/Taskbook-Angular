@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MyteamsComponent } from '../myteams/myteams.component';
 
 @Component({
   selector: 'app-principal-page',
