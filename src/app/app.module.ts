@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PrincipalPageComponent } from './components/principal-page/principal-page.component';
 import { MyteamsComponent }  from './components/myteams/myteams.component';
+import { ListarActividadesComponent } from './components/listar-actividades/listar-actividades.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -24,7 +25,8 @@ export function tokenGetter() {
     NavbarComponent,
     routingComponents,
     PrincipalPageComponent,
-    MyteamsComponent
+    MyteamsComponent,
+    ListarActividadesComponent
   ],
   imports: [
     BrowserModule,
