@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { MyteamsComponent } from './components/myteams/myteams.component';
 
 @Component({
   selector: 'app-root',

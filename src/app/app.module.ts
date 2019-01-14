@@ -4,12 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { JwtModule} from '@auth0/angular-jwt';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
-import { AuthGuard } from './services/auth.guard'
+import { AuthGuard } from './services/auth.guard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 //componentes
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PrincipalPageComponent } from './components/principal-page/principal-page.component';
+import { MyteamsComponent }  from './components/myteams/myteams.component';
 import { ListarActividadesComponent } from './components/listar-actividades/listar-actividades.component';
 
 export function tokenGetter() {
@@ -22,6 +25,7 @@ export function tokenGetter() {
     NavbarComponent,
     routingComponents,
     PrincipalPageComponent,
+    MyteamsComponent,
     ListarActividadesComponent
   ],
   imports: [
@@ -38,7 +42,11 @@ export function tokenGetter() {
     })
   ],
   providers: [
-    //UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    },
     AuthService,
     AuthGuard
   ],

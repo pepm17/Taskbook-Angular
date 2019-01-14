@@ -1,0 +1,22 @@
+<div class="float-md-right">
+    <div class="container-fluid">
+      <div class="col-md-30">
+          <div class="card">
+            <div class="card-body">
+              <div class="list-group">
+                  <button type="button" class="list-group-item list-group-item-action active">
+                      Crear equipo
+                  </button>
+                  <tr *ngFor= "let team of teamService.teams">
+                    <td>
+                        <button type="button" class="list-group-item list-group-item-action">
+                          {{team.name}}
+                        </button>
+                    </td>
+                  </tr>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
