@@ -10,6 +10,7 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PrincipalPageComponent } from './components/principal-page/principal-page.component';
+import { ListarActividadesComponent } from './components/listar-actividades/listar-actividades.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -20,7 +21,8 @@ export function tokenGetter() {
     AppComponent,
     NavbarComponent,
     routingComponents,
-    PrincipalPageComponent
+    PrincipalPageComponent,
+    ListarActividadesComponent
   ],
   imports: [
     BrowserModule,
