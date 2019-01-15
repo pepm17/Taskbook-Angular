@@ -9,9 +9,20 @@ import { Observable } from 'rxjs';
 })
 export class ActivityService {
 	myActivities: Activity[];
+	selectedActivity: Activity ={
+		title: '',
+		id: '',
+		description: '',
+		_dad: '',
+		response: ''
+	};
 	constructor(private http: HttpClient) { }
 
 	activitiesUser(): Observable<any>{
 		return this.http.get(environment.apiBaseUrl);
+	}
+
+	createActivity(activity: Activity){
+		return this.http.post(environment.apiBaseUrl+'/teams/${_id}/activity', activity);
 	}
 }
