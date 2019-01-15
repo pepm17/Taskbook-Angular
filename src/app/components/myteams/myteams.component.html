@@ -1,22 +1,18 @@
+<div class="card border-secondary">
+  <div class="card-header bg-dark text-white">
+    Mis grupos
+  </div>
+  <div class="card-body">
+    <div class="list-group">
+      <button type="button" class="list-group-item list-group-item-action active">
+        Crear equipo
+      </button>
+      <button *ngFor= "let team of teamService.teams" type="button" class="list-group-item list-group-item-action">
+        {{team.name}}
+      </button>
+    </div>
+  </div>
+</div>
 
-      
-          <div class="card border-secondary">
-            <div class="card-header bg-dark text-white">
-              Mis grupos
-            </div>
-            <div class="card-body">
-              <div class="list-group">
-                  <button type="button" class="list-group-item list-group-item-action active">
-                      Crear equipo
-                  </button>
-                  <tr *ngFor= "let team of teamService.teams">
-                    <td>
-                        <button type="button" class="list-group-item list-group-item-action">
-                          {{team.name}}
-                        </button>
-                    </td>
-                  </tr>
-              </div>
-            </div>
-          </div>
+
         

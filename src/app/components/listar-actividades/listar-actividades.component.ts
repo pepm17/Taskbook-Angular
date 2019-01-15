@@ -12,7 +12,14 @@ export class ListarActividadesComponent implements OnInit {
 	constructor(private activityService: ActivityService) { }
 	
 	ngOnInit() {
-		this.activityService.activitiesUser();
+		this.myActivities();
 	}
 
+	myActivities(){
+		this.activityService.activitiesUser()
+	    .subscribe(res =>{
+	      this.activityService.myActivities = res.activities;
+	      console.log(this.activityService.myActivities);
+	    })
+	}
 }
