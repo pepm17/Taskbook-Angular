@@ -28,12 +28,12 @@ export class TeamService {
     return this.http.get(environment.apiBaseUrl+`/teams/${_id}`);
   }
 
-  postTeam(_id: string){
-    return this.http.post(environment.apiBaseUrl+'/teams', _id);
+  postTeam(team: Team){
+    return this.http.post(environment.apiBaseUrl+'/teams', team);
   }
 
-  putTeam(_id: string){
-    return this.http.post(environment.apiBaseUrl+`/teams/${_id}`, _id);
+  putTeam(team: Team){
+    return this.http.post(environment.apiBaseUrl+`/teams/${team._id}`, team);
   }
 
   deleteTeam(_id: string){

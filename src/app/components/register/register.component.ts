@@ -24,5 +24,5 @@ export class RegisterComponent implements OnInit {
 	  		res =>this.router.navigate(['/signin']),
 	  		err =>this.error = 'Something went wrong'
 	  	)
-	  }
+	}
 }
