@@ -22,4 +22,8 @@ export class ListarActividadesComponent implements OnInit {
 	      console.log(this.activityService.myActivities);
 	    })
 	}
+
+	populateForm(activity: Activity){
+		this.activityService.selectedActivity = activity;
+	}
 }

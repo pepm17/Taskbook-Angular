@@ -11,7 +11,6 @@ import { Activity } from '../../models/activity';
 })
 export class UpdateActivityComponent implements OnInit {
 	error: string;
-	@Input() activity: Activity;
   constructor(private router: Router, private activityService: ActivityService) { 
 
   }
