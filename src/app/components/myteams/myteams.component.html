@@ -4,15 +4,54 @@
   </div>
   <div class="card-body">
     <div class="list-group">
-      <button type="button" class="list-group-item list-group-item-action active">
+      <button type="button" class="list-group-item list-group-item-action active" data-toggle="modal" data-target="#modalCrearGrupo">
         Crear equipo
       </button>
-      <button *ngFor= "let team of teamService.teams" type="button" class="list-group-item list-group-item-action">
-        {{team.name}}
+      <button *ngFor= "let team of teamService.teams" type="button" class="list-group-item list-group-item-action"  (click) = "getTeam(team._id)">
+        <h6>{{team.name}}</h6>
+        <p>{{team.creator.displayName}}</p>
       </button>
     </div>
   </div>
 </div>
 
 
-        
+
+<div class="modal fade" id="modalCrearGrupo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalCenterTitle">Crear Grupo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #teamForm="ngForm" (ngSubmit)="onSubmit(teamForm)">
+					<div class="form-group row">
+					    <label for="inputName1" class="col-sm-3 col-form-label">Nombre</label>
+						<div class="col-sm-9">
+							<input type="text" #name="ngModel" [(ngModel)]="teamService.selectedTeam.name" name="name" class="form-control" id="inputName1" placeholder="Name" required [ngClass]="{'invalid-textbox': teamForm.submitted && !name.valid}">
+					    </div>
+					</div>
+					<div *ngIf="teamForm.submitted && !name.valid">
+						<p class="text-danger" align="center">This field is requerid</p>
+					</div>
+					<div class="form-group row">
+					    <label for="inputName3" class="col-sm-3 col-form-label">Descripcion</label>
+						<div class="col-sm-9">
+							<input type="text" #description="ngModel" [(ngModel)]="teamService.selectedTeam.description" name="description" class="form-control" id="inputName3" placeholder="Description" required [ngClass]="{'invalid-textbox': teamForm.submitted && !description.valid}">
+					    </div>
+					</div>
+					<div *ngIf="teamForm.submitted && !description.valid">
+						<p class="text-danger" align="center">This field is requerid</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+				</form>
+      </div>
+    </div>
+  </div>
+</div>        

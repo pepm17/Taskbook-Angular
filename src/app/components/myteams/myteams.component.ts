@@ -2,16 +2,18 @@ import { Component, OnInit, NgModule} from '@angular/core';
 import { TeamService } from '../../services/team.service';
 import { Team } from 'src/app/models/team';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-myteams',
   templateUrl: './myteams.component.html',
   styleUrls: ['./myteams.component.css'],
-  providers: [ TeamService ]
+  providers: [ TeamService]
 })
 export class MyteamsComponent implements OnInit {
+  public error: string;
 
-  constructor(private teamService: TeamService) { }
+  constructor(private teamService: TeamService, private router: Router) { }
 
   ngOnInit() {
     this.getTeams();
@@ -24,4 +26,17 @@ export class MyteamsComponent implements OnInit {
       console.log(this.teamService.teams);
     })
   }
+
+  getTeam(_id: string){
+    this.teamService.getTeam(_id).subscribe(
+      res =>this.router.navigate([`teams/${_id}`]),
+      err =>this.error = 'Something went wrong'
+    )
+  }
+
+  onSubmit(form: NgForm){
+    this.teamService.postTeam(form.value).subscribe(
+      res =>this.router.navigate(['']),
+      err =>this.error = 'Something went wrong'
+  )}
 }

@@ -14,6 +14,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PrincipalPageComponent } from './components/principal-page/principal-page.component';
 import { MyteamsComponent }  from './components/myteams/myteams.component';
 import { ListarActividadesComponent } from './components/listar-actividades/listar-actividades.component';
+import { TeamComponent } from './components/team/team.component';
 import { CreateActivityComponent } from './components/create-activity/create-activity.component';
 import { UpdateActivityComponent } from './components/update-activity/update-activity.component';
 
@@ -29,6 +30,7 @@ export function tokenGetter() {
     PrincipalPageComponent,
     MyteamsComponent,
     ListarActividadesComponent,
+    TeamComponent
     CreateActivityComponent,
     UpdateActivityComponent
   ],

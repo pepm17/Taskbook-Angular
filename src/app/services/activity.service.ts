@@ -22,6 +22,10 @@ export class ActivityService {
 		return this.http.get(environment.apiBaseUrl);
 	}
 
+  getActivitiesTeam(_id: string): Observable<any>{
+		console.log(_id);
+		return this.http.get(environment.apiBaseUrl+`/teams/${_id}/activities`);
+
 	createActivity(activity: Activity){
 		return this.http.post(environment.apiBaseUrl+'/teams/${_id}/activities', activity);
 	}

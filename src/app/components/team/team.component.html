@@ -1,0 +1,50 @@
+<div class="content-fluid">
+	<div class="col-md-12 mx-auto mt-5">
+		<div class="row">
+		  <div class="col-sm-8">
+				<div class="card border-secondary">
+					<div class="card-header bg-dark text-white">
+						Crear Actividad
+					</div>
+					<h4 *ngIf="error">{{error}}</h4>
+					<div class="card-body">
+						<form #loginForm="ngForm" (ngSubmit)= "submit()">
+							<div class="form-group row">
+								<label for="inputEmail3" class="col-sm-3 col-form-label">Email</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="inputText1" name="title" [(ngModel)]= "title" placeholder="Title">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="inputText2" class="col-sm-3 col-form-label">Description</label>
+								<div class="col-sm-9">
+									<textarea name="description" id="textArea1" class="form-control" [(ngModel)]= "description" placeholder="Description" cols="30" rows="3"></textarea>
+								</div>
+							</div>
+							<div class="from-group row">
+								<div class="col-sm-12">
+									<button type="submit" class="btn btn-primary">Save changes</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<br>
+				<div *ngFor="let activity of activityService.getActivitiesTeam">
+					<div class="card border-secondary">
+						<div class="card-header verdeBg">
+							<p class="card-text letra">{{ activity.title }}</p>
+						</div>
+						<div class="card-body">
+							<h5 class="card-title"></h5>
+							<p class="card-text">{{ activity.description }}</p>
+							<a href="#" class="btn btn-info">Go somewhere</a>
+						</div>
+					</div>
+					<br>
+				</div>			
+		  </div>
+		  <div class="col-sm-4"><app-myteams></app-myteams></div>
+		</div>
+	</div>
+</div>
