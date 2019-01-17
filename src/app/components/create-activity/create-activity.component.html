@@ -1,0 +1,41 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create activity</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #createActivityForm="ngForm" (ngSubmit)="onSubmit(createActivityForm)" class="mx-auto">
+			<div class="form-group row">
+			    <label for="inputText3" class="col-sm-2 col-form-label">Title</label>
+				<div class="col-sm-9">
+					<input type="text" #title="ngModel" [(ngModel)]="activityService.selectedActivity.title" name="title" class="form-control" id="inputEmail3" placeholder="Title" required [ngClass]="{'invalid-textbox': createActivityForm.submitted && !title.valid}">
+			    </div>
+			</div>
+			<div *ngIf="createActivityForm.submitted && !title.valid">
+				<p class="text-danger" align="center">This field is requerid</p>
+			</div>
+			<div class="form-group row">
+			    <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label">Description</label>
+				<div class="col-sm-9">
+					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" #description="ngModel" [(ngModel)]="activityService.selectedActivity.description" name="description" placeholder="Description" required [ngClass]="{'invalid-textbox': createActivityForm.submitted && !description.valid}"></textarea>
+			    </div>
+			</div>
+			<div *ngIf="createActivityForm.submitted && !description.valid">
+				<p class="text-danger" align="center">This field is requerid</p>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-0 col-form-label"></label>
+				<div class="col-sm-12">
+					<button type="submit" class="btn btn-info btn-lg btn-block">Create</button>
+				</div>
+			</div>
+		</form>
+    </div>
+  </div>
+</div>

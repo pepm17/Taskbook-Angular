@@ -23,6 +23,5 @@ export class RegisterComponent implements OnInit {
 	  	this.userService.register(form.value).subscribe(
 	  		res =>this.router.navigate(['/signin']),
 	  		err =>this.error = 'Something went wrong'
-	  	)
-	}
+	  )}
 }

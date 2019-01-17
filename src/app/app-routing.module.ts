@@ -6,12 +6,14 @@ import { RegisterComponent } from './components/register/register.component';
 import { PrincipalPageComponent } from './components/principal-page/principal-page.component'
 import { AuthGuard } from './services/auth.guard';
 import { TeamComponent } from './components/team/team.component';
+import { CreateActivityComponent } from './components/create-activity/create-activity.component';
 
 const routes: Routes = [
 	{ path: '', component: PrincipalPageComponent, canActivate: [AuthGuard]},
 	{ path: 'teams/:_id', component: TeamComponent, canActivate: [AuthGuard]},
 	{ path: 'signin', component: LoginComponent },
-	{ path: 'signup', component : RegisterComponent}
+	{ path: 'signup', component : RegisterComponent },
+	{ path: 'activity', component: CreateActivityComponent }
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 export class Activity {
-	id: string;
+	_id: string;
 	title: string;
 	description: string;
 	_dad: string;

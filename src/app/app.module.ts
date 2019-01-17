@@ -15,6 +15,8 @@ import { PrincipalPageComponent } from './components/principal-page/principal-pa
 import { MyteamsComponent }  from './components/myteams/myteams.component';
 import { ListarActividadesComponent } from './components/listar-actividades/listar-actividades.component';
 import { TeamComponent } from './components/team/team.component';
+import { CreateActivityComponent } from './components/create-activity/create-activity.component';
+import { UpdateActivityComponent } from './components/update-activity/update-activity.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -29,6 +31,8 @@ export function tokenGetter() {
     MyteamsComponent,
     ListarActividadesComponent,
     TeamComponent
+    CreateActivityComponent,
+    UpdateActivityComponent
   ],
   imports: [
     BrowserModule,
