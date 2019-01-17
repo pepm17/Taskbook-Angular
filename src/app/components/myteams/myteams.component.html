@@ -7,7 +7,7 @@
       <button type="button" class="list-group-item list-group-item-action active" data-toggle="modal" data-target="#modalCrearGrupo">
         Crear equipo
       </button>
-      <button *ngFor= "let team of teamService.teams" type="button" class="list-group-item list-group-item-action">
+      <button *ngFor= "let team of teamService.teams" type="button" class="list-group-item list-group-item-action"  (click) = "getTeam(team._id)">
         <h6>{{team.name}}</h6>
         <p>{{team.creator.displayName}}</p>
       </button>

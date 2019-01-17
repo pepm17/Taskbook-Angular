@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   selector: 'app-myteams',
   templateUrl: './myteams.component.html',
   styleUrls: ['./myteams.component.css'],
-  providers: [ TeamService ]
+  providers: [ TeamService]
 })
 export class MyteamsComponent implements OnInit {
   public error: string;
@@ -25,6 +25,13 @@ export class MyteamsComponent implements OnInit {
       this.teamService.teams = res.teams;
       console.log(this.teamService.teams);
     })
+  }
+
+  getTeam(_id: string){
+    this.teamService.getTeam(_id).subscribe(
+      res =>this.router.navigate([`teams/${_id}`]),
+      err =>this.error = 'Something went wrong'
+    )
   }
 
   onSubmit(form: NgForm){

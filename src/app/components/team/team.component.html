@@ -1,0 +1,16 @@
+<div>
+  <h1>Aqui ira el formulario post para crear actividades</h1>
+</div>
+<div *ngFor="let activity of activityService.getActivitiesTeam">
+	<div class="card border-secondary">
+		<div class="card-header verdeBg">
+		    <p class="card-text letra">{{ activity.title }}</p>
+		</div>
+		<div class="card-body">
+		    <h5 class="card-title"></h5>
+		    <p class="card-text">{{ activity.description }}</p>
+		    <a href="#" class="btn btn-info">Go somewhere</a>
+		</div>
+	</div>
+	<br>
+</div>
