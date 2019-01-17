@@ -11,7 +11,7 @@ export class ActivityService {
 	myActivities: Activity[];
 	selectedActivity: Activity ={
 		title: '',
-		id: '',
+		_id: '',
 		description: '',
 		_dad: '',
 		response: ''
@@ -23,6 +23,10 @@ export class ActivityService {
 	}
 
 	createActivity(activity: Activity){
-		return this.http.post(environment.apiBaseUrl+'/teams/${_id}/activity', activity);
+		return this.http.post(environment.apiBaseUrl+'/teams/${_id}/activities', activity);
+	}
+
+	updateActivity(activity: Activity): Observable<any>{
+		return this.http.put(environment.apiBaseUrl+'/activities/'+activity._id, activity);
 	}
 }
