@@ -30,7 +30,7 @@ export function tokenGetter() {
     PrincipalPageComponent,
     MyteamsComponent,
     ListarActividadesComponent,
-    TeamComponent
+    TeamComponent,
     CreateActivityComponent,
     UpdateActivityComponent
   ],
