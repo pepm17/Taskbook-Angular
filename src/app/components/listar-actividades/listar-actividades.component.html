@@ -1,5 +1,5 @@
+<app-update-activity></app-update-activity>
 <div *ngFor="let activity of activityService.myActivities">
-	<app-update-activity></app-update-activity>
 	<div class="card border-secondary">
 		<div class="card-header verdeBg">
 		    <p class="card-text letra">{{ activity.title }}</p>
@@ -8,10 +8,10 @@
 		    <h5 class="card-title"></h5>
 		    <p class="card-text">{{ activity.description }}</p>
 		    <div class="btn-group mr-2" role="group" aria-label="First group">
-		    	<button (click)="populateForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Update</button>
+		    	<button (click)="editActivity(activity)" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Update</button>
 		    </div>
 		    <div class="btn-group mr-2" role="group" aria-label="Second group">
-		    	<a href="#" class="btn btn-info">Delete</a>
+		    	<button (click)="deleteActivity(activity._id)" class="btn btn-primary">Delete</button> 
 		    </div>
 		</div>
 	</div>

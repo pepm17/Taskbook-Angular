@@ -21,6 +21,6 @@ export class UpdateActivityComponent implements OnInit {
   onSubmit(form: NgForm){
   		this.activityService.updateActivity(form.value).subscribe(
   		res =>this.router.navigate(['/']),
-		err =>this.error = 'Something went wrong'
+		  err =>this.error = 'Something went wrong'
 	)}
 }

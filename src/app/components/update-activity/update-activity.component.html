@@ -9,6 +9,7 @@
       </div>
       <div class="modal-body">
         <form #updateActivityForm="ngForm" (ngSubmit)="onSubmit(updateActivityForm)" class="mx-auto">
+        	<input type="hidden" #_id="ngModel" [(ngModel)]="activityService.selectedActivity._id" name="_id">
 			<div class="form-group row">
 			    <label for="inputText3" class="col-sm-2 col-form-label">Title</label>
 				<div class="col-sm-9">

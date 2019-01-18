@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity } from '../../models/activity';
 import { ActivityService } from '../../services/activity.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-actividades',
@@ -8,8 +9,8 @@ import { ActivityService } from '../../services/activity.service';
   styleUrls: ['./listar-actividades.component.css']
 })
 export class ListarActividadesComponent implements OnInit {
-
-	constructor(private activityService: ActivityService) { }
+	error: string;
+	constructor(private activityService: ActivityService, private router: Router) { }
 	
 	ngOnInit() {
 		this.myActivities();
@@ -23,7 +24,14 @@ export class ListarActividadesComponent implements OnInit {
 	    })
 	}
 
-	populateForm(activity: Activity){
+	editActivity(activity: Activity){
 		this.activityService.selectedActivity = activity;
+	}
+
+	deleteActivity(_id: string){
+		this.activityService.deleteActivity(_id)
+		.subscribe(
+			res => console.log(res)
+		)
 	}
 }
