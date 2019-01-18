@@ -26,7 +26,11 @@ export class ActivityService {
 		return this.http.post(environment.apiBaseUrl+'/teams/${_id}/activities', activity);
 	}
 
-	updateActivity(activity: Activity): Observable<any>{
+	updateActivity(activity: Activity){
 		return this.http.put(environment.apiBaseUrl+'/activities/'+activity._id, activity);
+	}
+
+	deleteActivity(_id: string){
+	    return this.http.delete(environment.apiBaseUrl+'/activities/'+_id);
 	}
 }
