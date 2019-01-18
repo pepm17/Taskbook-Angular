@@ -15,8 +15,9 @@ export class CreateActivityComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit(form: NgForm){
-	this.activityService.createActivity(form.value).subscribe(
+  /*
+	this.activityService.postActivity(form.value).subscribe(
 		res =>this.router.navigate(['/']),
 		err =>this.error = 'Something went wrong'
-	)}
+  )*/}
 }

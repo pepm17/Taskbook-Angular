@@ -13,22 +13,29 @@ import { Observable } from 'rxjs';
 })
 export class TeamComponent implements OnInit {
   public error: string;
-  public teamid: string;
+  public _id: string;
 
   constructor(private route: Router, private actRoute: ActivatedRoute, private activityService: ActivityService) {}
 
   ngOnInit() {
-    this.teamid = this.actRoute.snapshot.params._id;
+    this._id = this.actRoute.snapshot.params._id;
     this.getActivities();
-    console.log(this.teamid);
+    console.log(this._id);
   }
 
-  onSubmit(){
-
-  }
+  onSubmit(form: NgForm){
+    this.activityService.postActivity(this._id ,form.value).subscribe(
+      res =>{
+        let _id = this._id;
+        console.log(_id);
+        this.route.navigate([`teams/${_id}`])
+        
+      },
+      err =>this.error = 'Something went wrong'
+  )}
 
   getActivities(){
-		this.activityService.getActivitiesTeam(this.teamid)
+		this.activityService.getActivitiesTeam(this._id)
 	    .subscribe(res =>{
 	      this.activityService.getActivitiesTeam = res.activities;
 	      console.log(this.activityService.getActivitiesTeam);

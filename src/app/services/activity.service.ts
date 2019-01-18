@@ -27,8 +27,8 @@ export class ActivityService {
 		return this.http.get(environment.apiBaseUrl+`/teams/${_id}/activities`);
 	}
 
-	createActivity(activity: Activity){
-		return this.http.post(environment.apiBaseUrl+'/teams/${_id}/activities', activity);
+	postActivity(_id: string, activity: Activity){
+		return this.http.post(environment.apiBaseUrl+`/teams/${_id}/activities`, activity);
 	}
 
 	updateActivity(activity: Activity){
